@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Word::class), version = 1, exportSchema = false)
+@Database(entities = [Word::class], version = 1, exportSchema = false)
 public abstract class WordRoomDatabase: RoomDatabase() {
     abstract fun wordDao(): WordDao
 
@@ -33,6 +33,7 @@ public abstract class WordRoomDatabase: RoomDatabase() {
         }
     }
 
+    // this is used to delete all content and repopulate the database whenever the app is created
     private class WordDatabaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback() {

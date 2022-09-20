@@ -8,6 +8,7 @@ import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 
+// activity for submitting a new word into the database
 class NewWordActivity : AppCompatActivity() {
 
     private lateinit var editWordView: EditText

@@ -14,8 +14,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class MainActivity : AppCompatActivity() {
 
     private val newWordActivityRequestCode = 1
-    var i = 5
 
+    var i = 5
     // this creates our view model
     private val wordViewModel: WordViewModel by viewModels {
         WordViewModelFactory((application as WordsApplication).repository)
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringExtra(NewWordActivity.EXTRA_REPLY)?.let {
-                val word = Word(++i, it)
+                val word = Word(i++, it)
                 wordViewModel.insert(word)
             }
         } else {
